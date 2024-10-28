@@ -421,7 +421,7 @@ nav .bx {
 }
 @media only screen and (max-width: 600px) {
   #header {
-    background-image: url(images/mobile2.png);
+    background-image: url(images/mobile.png);
   }
   .header-text {
     margin-top: 80%;
