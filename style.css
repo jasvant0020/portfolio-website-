@@ -26,7 +26,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
 }
 .logo {
   font-size: 3rem;
@@ -439,7 +438,9 @@ nav .bx {
     font-size: 25px;
   }
   nav ul {
-    background: #ff00555c;
+    background: url(images/sidebar.jpg);
+    background-size: cover;
+    background-position: center;
     position: fixed;
     top: 0;
     right: -200px;
