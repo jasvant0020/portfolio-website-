@@ -419,7 +419,7 @@ form .btn2 {
 nav .bx {
   display: none;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px) {
   #header {
     background-image: url(images/mobile.jpg);
   }
