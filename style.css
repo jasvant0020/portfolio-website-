@@ -121,7 +121,7 @@ img:hover {
 .tab-links {
   margin-right: 50px;
   font-size: 18px;
-  font-weight: 500px;
+  font-weight: 500;
   cursor: pointer;
   position: relative;
 }
@@ -274,7 +274,7 @@ img:hover {
 .contact-left p {
   margin-top: 30px;
 }
-.contact-leftp i {
+.contact-left p i {
   color: #ff004f;
   margin-right: 15px;
   font-size: 25px;
