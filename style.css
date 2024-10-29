@@ -563,7 +563,7 @@ nav .bx {
     background-image: url(images/neon.jpg); /* Keep desktop background for landscape */
   }
   .header-text {
-    margin-top: 40%; /* Lock text position as in desktop mode */
+    margin-top: 35%; /* Lock text position as in desktop mode */
     font-size: 16px;
   }
 }
