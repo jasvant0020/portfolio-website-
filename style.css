@@ -69,7 +69,7 @@ nav ul li a.active::after {
 }
 
 .header-text {
-  margin-top: 90%;
+  margin-top: 40%;
   font-size: 30px;
   margin-left: -10%;
 }
@@ -424,7 +424,7 @@ nav .bx {
     background-image: url(images/mobile.jpg); /* Mobile background image for portrait */
   }
   .header-text {
-    margin-top: 80%;
+    margin-top: 120%;
     font-size: 16px;
   }
   .header-text h1 {
