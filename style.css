@@ -557,7 +557,17 @@ nav .bx {
   margin-top: -40px;
   display: block;
 }
-/* Landscape orientation for both tablet and mobile to keep desktop background */
+/* Landscape orientation for mobile to keep desktop background */
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+  #header {
+    background-image: url(images/neon.jpg); /* Keep desktop background for landscape */
+  }
+  .header-text {
+    margin-top: 40%; /* Lock text position as in desktop mode */
+    font-size: 16px;
+  }
+}
+/* Landscape orientation for tablet to keep desktop background */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
   #header {
     background-image: url(images/neon.jpg); /* Keep desktop background for landscape */
