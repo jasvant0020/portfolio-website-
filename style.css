@@ -419,9 +419,9 @@ form .btn2 {
 nav .bx {
   display: none;
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 767px) and (orientation: portrait) {
   #header {
-    background-image: url(images/tab.jpg);
+    background-image: url(images/mobile.jpg); /* Mobile background image for portrait */
   }
   .header-text {
     margin-top: 80%;
@@ -487,4 +487,83 @@ nav .bx {
   color: #61b752;
   margin-top: -40px;
   display: block;
+}
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
+  #header {
+    background-image: url(images/tablet.jpg);/* Tablet background image for portrait */
+  }
+  .header-text {
+    margin-top: 80%;
+    font-size: 16px;
+  }
+  .header-text h1 {
+    font-size: 30px;
+  }
+  .header-text h2 {
+    font-size: 1.4rem;
+  }
+  nav .bx {
+    display: block;
+    font-size: 25px;
+  }
+  nav ul {
+    background: #ff00555c;
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 100vh;
+    padding-top: 50px;
+    z-index: 2;
+    transition: right 0.5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 25px;
+  }
+  nav ul .bx {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+  }
+  .sub-title {
+    font-size: 40px;
+  }
+  .about-col-1,
+  .about-col-2 {
+    flex-basis: 100%;
+  }
+  .about-col-1 {
+    margin-bottom: 30px;
+  }
+  .about-col-2 {
+    font-size: 14px;
+  }
+  .tab-links {
+    font-size: 16px;
+    margin-right: 20px;
+  }
+  .contact-left,
+  .contact-right {
+    flex-basis: 100%;
+  }
+  .copyright {
+    font-size: 14px;
+  }
+}
+#msg {
+  color: #61b752;
+  margin-top: -40px;
+  display: block;
+}
+/* Landscape orientation for both tablet and mobile to keep desktop background */
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+  #header {
+    background-image: url(images/neon.jpg); /* Keep desktop background for landscape */
+  }
+  .header-text {
+    margin-top: 40%; /* Lock text position as in desktop mode */
+    font-size: 16px;
+  }
 }
