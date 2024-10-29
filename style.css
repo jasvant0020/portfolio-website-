@@ -421,7 +421,7 @@ nav .bx {
 }
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
   #header {
-    background-image: url(images/mobile.jpg);/* Tablet background image for portrait */
+    background-image: url(images/tablet.jpg);/* Tablet background image for portrait */
   }
   .header-text {
     margin-top: 140%;
