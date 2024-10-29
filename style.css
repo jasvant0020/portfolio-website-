@@ -355,7 +355,7 @@ form .btn2 {
 }
 .text-animation span::after {
   content: "";
-  background: #060606; 
+  background: #1c1a1a; 
   position: absolute;
   width: calc(100% + 8px);
   height: 100%;
@@ -490,15 +490,15 @@ nav .bx {
   display: block;
 }
 /* For tablets */
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
+/* @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
   #header {
     background-image: url(images/tablet.jpg);/* Tablet background image for portrait */
-  }
+/*   }
   .header-text {
     margin-top: 140%;
     font-size: 16px;
   }
-}
+} */ 
 /* Landscape orientation for both tablet and mobile to keep desktop background */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
   #header {
