@@ -354,7 +354,7 @@ form .btn2 {
 }
 .text-animation span::after {
   content: "";
-  background: #1b1b1d; 
+  background: #141417; 
   position: absolute;
   width: calc(100% + 8px);
   height: 100%;
