@@ -354,6 +354,9 @@ nav .bx {
   #header {
     background-image: url(images/mobile.jpg);/* Tablet background image for portrait */
   }
+  .header-text h1 span {
+  font-size: 2rem;
+  }
   .text-animation{
   font-size: 2rem;
   }
@@ -428,6 +431,9 @@ nav .bx {
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
   #header {
     background-image: url(images/neon.jpg); /* Keep desktop background for landscape */
+  }
+  .header-text h1 span {
+  font-size: 2rem;
   }
   .header-text {
     margin-top: 30%; /* Lock text position as in desktop mode */
