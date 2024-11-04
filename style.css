@@ -339,6 +339,9 @@ form .btn2 {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.text-animation{
+  font-size: 2rem;
+}
 .text{
   color: #00ffee;
 }
@@ -350,6 +353,9 @@ nav .bx {
 @media only screen and (max-width: 767px) and (orientation: portrait){
   #header {
     background-image: url(images/mobile.jpg);/* Tablet background image for portrait */
+  }
+  .text-animation{
+  font-size: 2rem;
   }
   .header-text {
     margin-top: 140%;
@@ -426,5 +432,8 @@ nav .bx {
   .header-text {
     margin-top: 30%; /* Lock text position as in desktop mode */
     font-size: 16px;
+  }
+  .text-animation{
+  font-size: 2rem;
   }
 }
