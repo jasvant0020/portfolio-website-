@@ -430,7 +430,7 @@ nav .bx {
     background-image: url(images/neon.jpg); /* Keep desktop background for landscape */
   }
   .header-text h1 {
-  font-size: 60px;
+  font-size: 40px;
   }
   .header-text {
     margin-top: 30%; /* Lock text position as in desktop mode */
