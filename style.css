@@ -493,17 +493,6 @@ nav .bx {
   margin-top: -40px;
   display: block;
 }
-/* For tablets */
-/* @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
-  #header {
-    background-image: url(images/tablet.jpg);/* Tablet background image for portrait */
-/*   }
-  .header-text {
-    margin-top: 140%;
-    font-size: 16px;
-  }
-} */ 
-/* Landscape orientation for both tablet and mobile to keep desktop background */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
   #header {
     background-image: url(images/neon.jpg); /* Keep desktop background for landscape */
