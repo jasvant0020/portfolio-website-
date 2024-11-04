@@ -354,9 +354,6 @@ nav .bx {
   #header {
     background-image: url(images/mobile.jpg);/* Tablet background image for portrait */
   }
-  .header-text h1 {
-  font-size: 60px;
-  }
   .text-animation{
   font-size: 2rem;
   }
@@ -365,7 +362,7 @@ nav .bx {
     font-size: 16px;
   }
   .header-text h1 {
-    font-size: 30px;
+    font-size: 40px;
   }
   .header-text h2 {
     font-size: 1.4rem;
