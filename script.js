@@ -1,11 +1,46 @@
 //--------------------Typing Animation --------------------------
-var typed = new Typed(".text", {
-  strings: ["Frontend Developer", "web Developer", "UI Designer", "Programmer"],
-  typeSpeed: 40,
-  backSpeed: 40,
-  backDelay: 1000,
-  loop: true,
-});
+// Check if the elements are present and log them
+    const textElement = document.querySelector(".text");
+    const text1Element = document.querySelector(".text1");
+    const text2Element = document.querySelector(".text2");
+
+    if (textElement) {
+        console.log("Element .text found");
+        var typed = new Typed(".text", {
+            strings: ["Frontend Developer", "Web Developer", "UI Designer", "Programmer"],
+            typeSpeed: 40,
+            backSpeed: 40,
+            backDelay: 1000,
+            loop: true,
+        });
+    } else {
+        console.log("Element .text not found");
+    }
+
+    if (text1Element) {
+        console.log("Element .text1 found");
+        var typed1 = new Typed(".text1", {
+            strings: ["Thank you for your interest in connecting with me on Facebook.<br> However, I currently do not have a Facebook account.<br> Please feel free to reach out to me through other available contact options on this website.<br> I look forward to connecting with you!"],
+            typeSpeed: 10,
+        });
+    } else {
+        console.log("Element .text1 not found");
+    }
+
+
+    if (text2Element) {
+      console.log("Element .text2 found");
+      var typed2 = new Typed(".text2", {
+        strings: [
+          "Thank you for your interest in connecting with me on Twitter.<br> However, I currently do not have a Twitter account.<br> Please feel free to reach out to me through other available contact options on this website.<br> I look forward to connecting with you!",
+        ],
+        typeSpeed: 10,
+      });
+    } else {
+      console.log("Element .text1 not found");
+    }
+
+
 
 //--------------------Tab functionality--------------------------
 var tablinks = document.getElementsByClassName('tab-links');
