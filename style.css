@@ -440,3 +440,20 @@ nav .bx {
   font-size: 2rem;
   }
 }
+
+/*---------------social icons-notice page------------------*/
+.notice{
+  align-items: center;
+  padding-left: 20px;
+  padding-top: 20%;
+  text-align: center;
+  font-size: 30px;
+}
+#T1{
+  transition: 0.3s ease-in-out; 
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+#T1:hover {
+  transform: scale(1.05);
+}
