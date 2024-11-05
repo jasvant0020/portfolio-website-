@@ -444,7 +444,8 @@ nav .bx {
 /*---------------social icons-notice page------------------*/
 .notice{
   align-items: center;
-  padding-left: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   padding-top: 20%;
   text-align: center;
   font-size: 30px;
