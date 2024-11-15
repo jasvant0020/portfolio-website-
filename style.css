@@ -458,3 +458,24 @@ nav .bx {
 #T1:hover {
   transform: scale(1.05);
 }
+
+/* -----------scroll button effect---------- */
+#scrollToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 20px;
+  right: 2px;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  border: 1px solid #ff004f;
+  padding: 10px 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+#scrollToTopBtn:hover {
+  background-color:#ff004f 
+}
