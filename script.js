@@ -105,3 +105,23 @@ form.addEventListener('submit', e => {
       msg.innerHTML = "";
     }, 5000);
 });
+
+
+// Show button when scrolling down
+window.addEventListener('scroll', function() {
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+  if (window.scrollY > 300) { // Adjust the value as needed
+    scrollToTopBtn.style.display = 'block';
+  } else {
+    scrollToTopBtn.style.display = 'none';
+  }
+});
+
+// Scroll to the top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Smooth scrolling
+  });
+}
+
