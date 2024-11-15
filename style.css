@@ -259,6 +259,7 @@ img:hover {
   border-radius: 6px;
   text-decoration: none;
   color: white;
+  text-align: center;
 }
 .btn:hover {
   background: #ff004f;
