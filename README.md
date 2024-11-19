@@ -15,7 +15,7 @@ This is my personal portfolio website, designed to showcase my skills, projects,
 
 ## Demo  
 
-![Portfolio Website](assets/demo.png) <!-- Replace with your actual demo screenshot or link -->  
+![Portfolio Website](images/demo.png) <!-- Replace with your actual demo screenshot or link -->  
 
 ## Technology Stack  
 
