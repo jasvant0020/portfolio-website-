@@ -1,3 +1,42 @@
+// Collecting basic visitor details like browser, device type, and time
+const browserDetails = navigator.userAgent;
+const deviceType = /mobile/i.test(navigator.userAgent) ? "Mobile" : "Desktop";
+const currentTime = new Date().toLocaleString();
+const referrer = document.referrer;
+
+// Function to send the visitor details to a server or Google Sheets
+async function sendVisitorDetails() {
+  const data = {
+    browser: browserDetails,
+    device: deviceType,
+    time: currentTime,
+    referrer: referrer,
+  };
+
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/library/d/1lRsT_fdt4nqjhsfwMSZY2z4HjCau_5x-6f4TiBSfhi14bLtGac0ORU_G/2",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    );
+
+    if (response.ok) {
+      console.log("Visitor details saved successfully.");
+    } else {
+      console.log("Error saving visitor details.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// Call the function when the page loads
+sendVisitorDetails();
+
+
 //--------------------Typing Animation --------------------------
 // Check if the elements are present and log them
     const textElement = document.querySelector(".text");
