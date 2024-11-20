@@ -1,40 +1,29 @@
 // Collecting basic visitor details like browser, device type, and time
-const browserDetails = navigator.userAgent;
-const deviceType = /mobile/i.test(navigator.userAgent) ? "Mobile" : "Desktop";
-const currentTime = new Date().toLocaleString();
-const referrer = document.referrer;
-
-// Function to send the visitor details to a server or Google Sheets
 async function sendVisitorDetails() {
-  const data = {
-    browser: browserDetails,
-    device: deviceType,
-    time: currentTime,
-    referrer: referrer,
-  };
+    const data = {
+        browser: navigator.userAgent,
+        device: /mobile/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
+        time: new Date().toLocaleString(),
+        referrer: document.referrer || 'Direct Visit',
+    };
 
-  try {
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycby88NS3JvXSZnQY7wop6_4TA9KXBRBNDii1QGfejIft/dev",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      }
-    );
+    try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbyBTrH1y3P_nMjpuXcwMNNTQCgGsS7VY0DnacftnAQu_6aaKbP2FKj-VvvMNTbKPqUxuw/exec', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+            mode: 'cors', // Ensure CORS is enabled
+        });
 
-    if (response.ok) {
-      console.log("Visitor details saved successfully.");
-    } else {
-      console.log("Error saving visitor details.");
+        if (response.ok) {
+            console.log('Visitor details saved successfully.');
+        } else {
+            console.log('Error saving visitor details:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error:', error);
     }
-  } catch (error) {
-    console.error("Error:", error);
-  }
 }
-
-// Call the function when the page loads
-sendVisitorDetails();
 
 
 //--------------------Typing Animation --------------------------
