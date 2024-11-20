@@ -1,31 +1,3 @@
-// Collecting basic visitor details like browser, device type, and time
-async function sendVisitorDetails() {
-    const data = {
-        browser: navigator.userAgent,
-        device: /mobile/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
-        time: new Date().toLocaleString(),
-        referrer: document.referrer || 'Direct Visit',
-    };
-
-    try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbza9pfDIjmviVuERqrIBebWrH9UIG4OmStNcDUz8OYhsqfn3qBk63hGHU2EDwnAC3uIMw/exec', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data),
-            mode: 'cors', // Enable cross-origin requests
-        });
-
-        if (response.ok) {
-            console.log('Visitor details saved successfully.');
-        } else {
-            console.error('Error saving visitor details:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
-
-
 //--------------------Typing Animation --------------------------
 // Check if the elements are present and log them
     const textElement = document.querySelector(".text");
