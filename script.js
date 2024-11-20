@@ -15,7 +15,7 @@ async function sendVisitorDetails() {
 
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbyBTrH1y3P_nMjpuXcwMNNTQCgGsS7VY0DnacftnAQu_6aaKbP2FKj-VvvMNTbKPqUxuw/exec",
+      "https://script.google.com/macros/s/AKfycby88NS3JvXSZnQY7wop6_4TA9KXBRBNDii1QGfejIft/dev",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
