@@ -8,17 +8,17 @@ async function sendVisitorDetails() {
     };
 
     try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbyBTrH1y3P_nMjpuXcwMNNTQCgGsS7VY0DnacftnAQu_6aaKbP2FKj-VvvMNTbKPqUxuw/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbza9pfDIjmviVuERqrIBebWrH9UIG4OmStNcDUz8OYhsqfn3qBk63hGHU2EDwnAC3uIMw/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
-            mode: 'cors', // Ensure CORS is enabled
+            mode: 'cors', // Enable cross-origin requests
         });
 
         if (response.ok) {
             console.log('Visitor details saved successfully.');
         } else {
-            console.log('Error saving visitor details:', response.statusText);
+            console.error('Error saving visitor details:', response.statusText);
         }
     } catch (error) {
         console.error('Error:', error);
