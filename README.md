@@ -29,4 +29,11 @@ This is my personal portfolio website, designed to showcase my skills, projects,
 
 - **Integrations**:  
   - Google Sheets API for storing form submissions  
-  - Email notifications for real-time updates  
+  - Email notifications for real-time updates
+
+
+
+## 📄 License
+
+
+This project is licensed under the [MIT License](LICENSE).
