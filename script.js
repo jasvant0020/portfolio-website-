@@ -7,7 +7,7 @@
     if (textElement) {
         console.log("Element .text found");
         var typed = new Typed(".text", {
-            strings: ["Python Developer", "java Developer", "skilled in oops with java", "skilled in DSA with java","skilled in C++"],
+            strings: ["Python Developer", "java Developer", "skilled in oops with java", "skilled in DSA with java","skilled in C++","Web developer"],
             typeSpeed: 40,
             backSpeed: 40,
             backDelay: 1000,
