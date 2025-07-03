@@ -89,10 +89,10 @@ form.addEventListener('submit', e => {
     formData.append('day', dayName);
 
     //------------Display the success message immediately---------------
-    msg.innerHTML = "Message sent successfully";
 
     fetch(scriptURL, { method: 'POST', body: formData })
       .then(response => {
+          msg.innerHTML = "Message sent successfully"
           form.reset();//clear the form
       })
       .catch(error => {
