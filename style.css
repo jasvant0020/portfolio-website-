@@ -353,15 +353,11 @@ nav .bx {
 }
 /* For smaller devices */
 @media only screen and (max-width: 767px) and (orientation: portrait){
-  .tab-contents {
-    font-size: 14px;
-    padding-right: 5px;
-  }
   #header {
     background-image: url(images/mobile.jpg);/* Tablet background image for portrait */
   }
   .text-animation{
-   font-size: 2rem;
+  font-size: 2rem;
   }
   .header-text {
     margin-top: 140%;
@@ -484,26 +480,4 @@ nav .bx {
 
 #scrollToTopBtn:hover {
   background-color:#ff004f 
-  }
-
-/* Prevent horizontal scroll only in About section */
-#about {
-  overflow-x: hidden;
-}
-
-.about-col-2 {
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-.tab-contents ul li {
-  white-space: normal;       /* Allow line breaks */
-  word-wrap: break-word;     /* Break long words */
-  overflow-wrap: break-word; /* Consistent across browsers */
-}
-.tab-contents ul li a {
-  display: inline-block;     /* Allows breaking long URLs */
-  max-width: 100%;           
-  word-break: break-word;    /* Breaks long links */
 }
