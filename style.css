@@ -7,10 +7,6 @@
 html {
   scroll-behavior: smooth;
 }
-body, html {
-  max-width: 100%;
-  overflow-x: hidden;     /* ✅ Block horizontal scroll */
-}
 body {
   background: #080808;
   color: white;
@@ -74,8 +70,7 @@ nav ul li a.active::after {
 .header-text {
   margin-top: 40%;
   font-size: 30px;
-  margin-left: 0;       /* ✅ Remove negative margin */
-  padding: 0 5%;        /* ✅ Optional: center-align nicely */
+  margin-left: -10%;
 }
 .header-text h1 {
   font-size: 60px;
@@ -485,4 +480,4 @@ nav .bx {
 
 #scrollToTopBtn:hover {
   background-color:#ff004f 
-}
+  }
