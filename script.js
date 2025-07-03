@@ -84,9 +84,9 @@ form.addEventListener('submit', e => {
 
     //--------Prepare form data to send, adding date, time, and day-----------
     const formData = new FormData(form);
-    formData.append('date', date);
-    formData.append('time', time);
-    formData.append('day', dayName);
+    formData.append('Date', date);
+    formData.append('Time', time);
+    formData.append('Day', dayName);
 
     //------------Display the success message immediately---------------
     msg.innerHTML = "Message sent successfully";
