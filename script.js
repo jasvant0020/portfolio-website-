@@ -107,7 +107,11 @@ fetch(scriptURL, { method: 'POST', body: formData })
   });
 
 
-
+    //--------------Hide the message after 5 seconds----------------------
+    setTimeout(function() {
+      msg.innerHTML = "";
+    }, 5000);
+});
 
 // Show button when scrolling down
 window.addEventListener('scroll', function() {
