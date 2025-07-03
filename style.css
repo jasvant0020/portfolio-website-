@@ -351,28 +351,10 @@ form .btn2 {
 nav .bx {
   display: none;
 }
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
 /* For smaller devices */
 @media only screen and (max-width: 767px) and (orientation: portrait){
   #header {
     background-image: url(images/mobile.jpg);/* Tablet background image for portrait */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed; /* Helps fill full screen on scroll */
-    min-height: 100vh; /* Ensures full screen height even with dynamic content */
-  }
-  html, body {
-    overflow-x: hidden;
-    width: 100%;
-  }
-
-  section {
-    width: 100%;
   }
   .text-animation{
   font-size: 2rem;
@@ -498,4 +480,4 @@ html, body {
 
 #scrollToTopBtn:hover {
   background-color:#ff004f 
-    }
+}
