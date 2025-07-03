@@ -91,19 +91,13 @@ form.addEventListener('submit', e => {
     //------------Display the success message immediately---------------
 
     fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => response.json()) // Convert response to JSON
-        .then(data => {
-            if (data.status === 'success') {
-                msg.innerHTML = "Message sent successfully";
-                form.reset();//clear the form 
-            } else {
-              throw new Error(data.message || "Unknown error");
-            }
-          })
-          .catch(error => {
-            console.error('Error!', error.message);
-            msg.innerHTML = "There was an error sending your message.";
-          });
+        .then(response => {
+            msg.innerHTML = "Message sent successfully";
+            setTimeout(function(){
+                msg.innerHTML = ""; 
+            },5000);
+            form.reset();
+        });
 
 
     //--------------Hide the message after 5 seconds----------------------
