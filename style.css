@@ -7,6 +7,10 @@
 html {
   scroll-behavior: smooth;
 }
+body, html {
+  max-width: 100%;
+  overflow-x: hidden;     /* ✅ Block horizontal scroll */
+}
 body {
   background: #080808;
   color: white;
@@ -70,7 +74,8 @@ nav ul li a.active::after {
 .header-text {
   margin-top: 40%;
   font-size: 30px;
-  margin-left: -10%;
+  margin-left: 0;       /* ✅ Remove negative margin */
+  padding: 0 5%;        /* ✅ Optional: center-align nicely */
 }
 .header-text h1 {
   font-size: 60px;
@@ -351,6 +356,10 @@ form .btn2 {
 nav .bx {
   display: none;
 }
+* {
+  box-sizing: border-box;
+}
+
 /* For smaller devices */
 @media only screen and (max-width: 767px) and (orientation: portrait){
   #header {
