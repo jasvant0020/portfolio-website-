@@ -91,7 +91,7 @@ form.addEventListener('submit', e => {
     //------------Display the success message immediately---------------
     msg.innerHTML = "Message sent successfully";
 
-    fetch(scriptURL, { method: 'POST', body: formData })
+fetch(scriptURL, { method: 'POST', body: formData })
   .then(response => response.json()) // Convert response to JSON
   .then(data => {
     if (data.status === 'success') {
@@ -105,6 +105,7 @@ form.addEventListener('submit', e => {
     console.error('Error!', error.message);
     msg.innerHTML = "There was an error sending your message.";
   });
+
 
 
 
