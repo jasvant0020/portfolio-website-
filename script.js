@@ -69,7 +69,7 @@ function closemenu() {
 }
 
 //--------------Google Sheets form submission functionality------------
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwmW9FpObsPd2Y-zyOSqbKvVJDisx2fSu8TZHrClhQEDNwisIsf8YxfJMUBwP_D94gS/exec'; 
+const scriptURL = 'https://script.google.com/macros/s/AKfycby19HoS_vjFuoOxKjplrdwSaU9Y9mDOLH4jWbFmj2bEsZ-L3eUTfNgQu_X0uEDLbSeq2A/exec'; 
 const form = document.forms['submit-to-google-sheet'];
 const msg = document.getElementById("msg");
 
