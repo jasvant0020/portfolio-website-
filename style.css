@@ -351,24 +351,10 @@ form .btn2 {
 nav .bx {
   display: none;
 }
-html, body {
-  max-width: 100vw;       /* ✅ Restricts full width to the viewport */
-  overflow-x: hidden;     /* ✅ Hides horizontal scroll caused by overflow */
-}
-* {
-  outline: 1px solid red; /* ✅ Helps you identify oversized elements */
-}
-
-
 /* For smaller devices */
 @media only screen and (max-width: 767px) and (orientation: portrait){
-  
   #header {
     background-image: url(images/mobile.jpg);/* Tablet background image for portrait */
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: cover;             /* ✅ Fully stretches image over the section */
-    background-attachment: scroll;
   }
   .text-animation{
   font-size: 2rem;
@@ -376,8 +362,6 @@ html, body {
   .header-text {
     margin-top: 140%;
     font-size: 16px;
-    margin-left: 0;             /* ✅ REMOVE the -10% margin that pushes content off screen */
-    padding: 0 10px;            /* ✅ Optional: keeps content spaced */
   }
   .header-text h1 {
     font-size: 40px;
@@ -496,4 +480,4 @@ html, body {
 
 #scrollToTopBtn:hover {
   background-color:#ff004f 
-}
+    }
