@@ -91,21 +91,14 @@ form.addEventListener('submit', e => {
     //------------Display the success message immediately---------------
     msg.innerHTML = "Message sent successfully";
 
-fetch(scriptURL, { method: 'POST', body: formData })
-  .then(response => response.json()) // Convert response to JSON
-  .then(data => {
-    if (data.status === 'success') {
-      msg.innerHTML = "Message sent successfully";
-      form.reset();
-    } else {
-      throw new Error(data.message || "Unknown error");
-    }
-  })
-  .catch(error => {
-    console.error('Error!', error.message);
-    msg.innerHTML = "There was an error sending your message.";
-  });
-
+    fetch(scriptURL, { method: 'POST', body: formData })
+      .then(response => {
+          form.reset(); // Clears the form
+      })
+      .catch(error => {
+          console.error('Error!', error.message);
+          msg.innerHTML = "There was an error sending your message.";
+      });
 
     //--------------Hide the message after 5 seconds----------------------
     setTimeout(function() {
