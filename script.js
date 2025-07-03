@@ -92,14 +92,8 @@ form.addEventListener('submit', e => {
     msg.innerHTML = "Message sent successfully";
 
     fetch(scriptURL, { method: 'POST', body: formData })
-       .then(response => response.json())  // Convert to JSON
-       .then(data => {
-           if (data.status === 'success') {
-              msg.innerHTML = "Message sent successfully";
-              form.reset(); // Clears the form
-           } else {
-             throw new Error(data.message || "Unknown error");
-           }
+       .then(response => {
+           form.reset();//clear the 
          })
          .catch(error => {
              console.error('Error!', error.message);
