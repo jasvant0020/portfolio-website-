@@ -353,8 +353,22 @@ nav .bx {
 }
 /* For smaller devices */
 @media only screen and (max-width: 767px) and (orientation: portrait){
+  /* ✅ NEW: Prevent horizontal scroll and set full width */
+  body {
+    overflow-x: hidden;               /* ✅ Prevents right-side white space */
+    position: relative;               /* ✅ Allows correct background positioning */
+  }
+
+  /* ✅ NEW: Make sure html and body don't exceed screen width */
+  html, body {
+    width: 100%;                      /* ✅ Ensures layout stays within viewport */
+  }
   #header {
     background-image: url(images/mobile.jpg);/* Tablet background image for portrait */
+    background-repeat: no-repeat;             /* ✅ New */
+    background-position: right top;           /* ✅ Anchors background to right edge */
+    background-size: auto 100%;               /* ✅ Background fills height, keeps width natural */
+    background-attachment: scroll;
   }
   .text-animation{
   font-size: 2rem;
