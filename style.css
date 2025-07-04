@@ -484,11 +484,9 @@ nav .bx {
 
 /* -----------all link color ---------- */
 a {
-    color: #00ffcc; 
-    text-decoration: none; 
+    color: #666eff;     
   }
 a:hover {
-    color: #ffcc00; 
-    text-decoration: underline; 
+    color: #9047ad; 
   }
 
