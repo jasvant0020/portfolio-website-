@@ -481,3 +481,14 @@ nav .bx {
 #scrollToTopBtn:hover {
   background-color:#ff004f 
 }
+
+/* -----------all link color ---------- */
+a {
+    color: #00ffcc; 
+    text-decoration: none; 
+  }
+a:hover {
+    color: #ffcc00; 
+    text-decoration: underline; 
+  }
+
