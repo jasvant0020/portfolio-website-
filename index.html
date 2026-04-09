@@ -1,242 +1,828 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jasvant/Portfolio website</title>
-    <link rel="icon" href="images/logo.png" sizes="128x128">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
-    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jasvant Singh — AI Developer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ['Syne', 'sans-serif'],
+        body: ['DM Sans', 'sans-serif'],
+      },
+      colors: {
+        accent: '#7C3AED',
+        'accent-light': '#A78BFA',
+        'accent-glow': '#6D28D9',
+        surface: '#0F0F14',
+        'surface-2': '#16161F',
+        'surface-3': '#1E1E2A',
+        'surface-4': '#252535',
+        border: 'rgba(124,58,237,0.18)',
+        'border-2': 'rgba(167,139,250,0.12)',
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 4s ease-in-out infinite',
+        'slide-up': 'slideUp 0.7s ease forwards',
+        'fade-in': 'fadeIn 0.8s ease forwards',
+        'glow': 'glow 3s ease-in-out infinite',
+        'spin-slow': 'spin 12s linear infinite',
+      },
+      keyframes: {
+        float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-16px)' } },
+        slideUp: { 'from': { transform: 'translateY(40px)', opacity: '0' }, 'to': { transform: 'translateY(0)', opacity: '1' } },
+        fadeIn: { 'from': { opacity: '0' }, 'to': { opacity: '1' } },
+        glow: { '0%,100%': { boxShadow: '0 0 20px rgba(124,58,237,0.2)' }, '50%': { boxShadow: '0 0 50px rgba(124,58,237,0.5), 0 0 80px rgba(124,58,237,0.15)' } },
+      },
+      backgroundImage: {
+        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237C3AED' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+      }
+    }
+  }
+}
+</script>
+<style>
+  * { box-sizing: border-box; }
+  html { font-family: 'DM Sans', sans-serif; }
+  body { background: #0F0F14; color: #E2E2F0; overflow-x: hidden; }
 
+  .dark body { background: #0F0F14; color: #E2E2F0; }
+  .light body { background: #F5F4FF; color: #1a1a2e; }
 
+  .light-mode { background: #F5F4FF !important; color: #1a1a2e !important; }
+  .light-mode .nav-bg { background: rgba(245,244,255,0.9) !important; border-color: rgba(124,58,237,0.12) !important; }
+  .light-mode .card-glass { background: rgba(255,255,255,0.7) !important; border-color: rgba(124,58,237,0.15) !important; }
+  .light-mode .text-dim { color: #6b6b8a !important; }
+  .light-mode .surface-card { background: white !important; }
+  .light-mode .footer-bg { background: #1a1a2e !important; }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0F0F14; }
+  ::-webkit-scrollbar-thumb { background: #7C3AED; border-radius: 2px; }
+
+  .card-glass {
+    background: rgba(30, 30, 42, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(124,58,237,0.15);
+    transition: all 0.3s ease;
+  }
+  .card-glass:hover {
+    border-color: rgba(124,58,237,0.4);
+    background: rgba(30, 30, 42, 0.85);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 60px rgba(124,58,237,0.15);
+  }
+
+  .nav-bg {
+    background: rgba(15,15,20,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(124,58,237,0.1);
+  }
+
+  .glow-text {
+    background: linear-gradient(135deg, #A78BFA 0%, #7C3AED 50%, #C4B5FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .tab-btn.active { color: #A78BFA; border-bottom: 2px solid #7C3AED; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .skill-tag {
+    background: rgba(124,58,237,0.1);
+    border: 1px solid rgba(124,58,237,0.2);
+    color: #C4B5FD;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: inline-block;
+    margin: 4px;
+  }
+  .skill-tag:hover { background: rgba(124,58,237,0.25); border-color: rgba(124,58,237,0.5); transform: scale(1.04); }
+
+  .work-card:hover .work-overlay { opacity: 1; }
+  .work-overlay { transition: opacity 0.35s ease; opacity: 0; }
+
+  .social-link {
+    width: 44px; height: 44px;
+    background: rgba(124,58,237,0.08);
+    border: 1px solid rgba(124,58,237,0.2);
+    border-radius: 12px;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+    color: #A78BFA;
+    font-size: 20px;
+  }
+  .social-link:hover {
+    background: rgba(124,58,237,0.25);
+    border-color: rgba(167,139,250,0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(124,58,237,0.25);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #7C3AED, #6D28D9);
+    box-shadow: 0 4px 24px rgba(124,58,237,0.3);
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(124,58,237,0.45); }
+
+  .btn-outline {
+    border: 1px solid rgba(124,58,237,0.35);
+    color: #A78BFA;
+    transition: all 0.25s;
+  }
+  .btn-outline:hover { background: rgba(124,58,237,0.12); border-color: rgba(167,139,250,0.6); }
+
+  .cursor { display: inline-block; width: 2px; height: 1.1em; background: #A78BFA; margin-left: 2px; vertical-align: text-bottom; animation: blink 0.9s step-end infinite; }
+  @keyframes blink { '0%,100%': { opacity: 1 } '50%': { opacity: 0 } }
+  @keyframes blink { 0%,100% { opacity: 1 } 50% { opacity: 0 } }
+
+  .noise-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; opacity: 0.5; z-index: 0;
+  }
+
+  .nav-link { position: relative; color: #aaa; transition: color 0.2s; font-weight: 500; }
+  .nav-link:hover { color: #A78BFA; }
+  .nav-link::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: #7C3AED; transform: scaleX(0); transition: transform 0.2s; }
+  .nav-link:hover::after { transform: scaleX(1); }
+
+  .form-input {
+    background: rgba(30,30,42,0.5);
+    border: 1px solid rgba(124,58,237,0.2);
+    border-radius: 12px;
+    color: #E2E2F0;
+    padding: 14px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    width: 100%;
+    transition: all 0.2s;
+    outline: none;
+  }
+  .form-input:focus { border-color: rgba(124,58,237,0.55); background: rgba(30,30,42,0.8); box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+  .form-input::placeholder { color: #555570; }
+
+  #scrollTopBtn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, #7C3AED, #6D28D9);
+    border: none; border-radius: 14px; cursor: pointer;
+    color: white; font-size: 20px;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.3s;
+    box-shadow: 0 8px 24px rgba(124,58,237,0.35);
+  }
+  #scrollTopBtn.visible { opacity: 1; transform: translateY(0); }
+  #scrollTopBtn:hover { transform: translateY(-3px) !important; box-shadow: 0 12px 32px rgba(124,58,237,0.5); }
+
+  .mobile-menu { display: none; }
+  .mobile-menu.open { display: flex; }
+
+  .cert-item { border-left: 2px solid rgba(124,58,237,0.3); padding-left: 16px; transition: border-color 0.2s; }
+  .cert-item:hover { border-left-color: #7C3AED; }
+
+  .edu-dot { width: 10px; height: 10px; background: #7C3AED; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(124,58,237,0.2); margin-top: 5px; }
+
+  section { position: relative; z-index: 1; }
+  .hero-section { min-height: 100vh; }
+
+  .service-icon { width: 52px; height: 52px; background: rgba(124,58,237,0.12); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #A78BFA; margin-bottom: 18px; transition: all 0.3s; }
+  .card-glass:hover .service-icon { background: rgba(124,58,237,0.25); transform: scale(1.08); }
+</style>
 </head>
-<body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <h1 class="logo">jasvant</h1>
-                <ul id="sidemenu">
-                    <li><a href="#header" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <i class='bx bx-arrow-back' onclick="closemenu()"></i>
-                </ul>
-                <i class='bx bx-menu' onclick="openmenu()"></i>
-            </nav>
-            <div class="header-text">
-                <h1>Here is  <span>JASVANT</span></h1>
-                <h3 class="text-animation">I'm a <span class="text"></span></h3>
-            </div>
-        </div>
-    </div>
-<!-- -----------------about------------------ -->
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <img src="images/image.jpg" >
-                </div>
-                <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
-                    <p>MY self Jasvant a B.Tech student in artificial intelligence.
-                        With a strong interest in AI applications, I am dedicated to enhancing my knowledge and technical skills, aiming to contribute meaningfully to the field.
-                    </p>
+<body id="body" class="font-body">
+<div class="noise-overlay"></div>
 
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                       <!--  <p class="tab-links" onclick="opentab('experience')">Experience</p>   -->
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
-                        <p class="tab-links" onclick="opentab('certificates')">Certificates</p>
-                        <p class="tab-links" onclick="opentab('projects')">Projects</p>
-                    </div>
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>Programming Languages</span><br>Python,JavaScript,JAVA</li>
-                            <li><span>Web Development</span><br>HTML, CSS</li>
-                            <li><span>Concept Paradigm</span><br>DSA, OOP</li>
-                            <li><span>AI/ML</span><br>OpenCV,YOLOv8,Face Recognition</li>
-                            <li><span>Automation Tools</span><br>IFTTT</li>
-                            <li><span>Tools & Technologies</span><br>Git, Github, Google App Script,  Google Sheets API, VS Code</li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>Date</span><br>---</li>
-                            <li><span>Date</span><br>---</li>
-                            <li><span>Date</span><br>---</li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>Dr. A.P.J. Abdul Kalam Technical University.</span><br>B.Tech CSE (AI) : 2026</li>
-                            <li><span>Uttar Pradesh Board of High School and Intermediate Education.</span><br>Senior Secondary : 2021</li>
-                            <li><span>Uttar Pradesh Board of High School and Intermediate Education</span><br>Secondary : 2019</li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="certificates">
-                        <ul>
-                            <li>
-                                <span>Issued-June 2025</span><br>
-                                <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/UC-9ba55bb3-55b8-404a-87df-e32e43eb35b1.jpg" target="_blank">JAVA OOP Certificate</a>
-                            </li>
-                            <li>
-                                <span>Issued-June 2025</span><br>
-                                <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/UC-68903915-d530-4dd9-a642-585202068bdb.jpg" target="_blank">Google Sheet Certificate</a>
-                            </li>
-                            <li>
-                                <span>Issued-June 2025</span><br>
-                                <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/UC-7e282842-1d20-4eee-bc2a-41faf558b15b.jpg" target="_blank">Python for Beginners</a>
-                            </li>
-                            <li>
-                                <span>Issued-April 2023</span><br>
-                                <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/10April_COP_Jasvant_page-0001.jpg" target="_blank">Revenue Streams and Pricing Tactis</a>
-                            </li>
-                            <li>
-                                <span>Issued-Jan 2024</span><br>
-                                <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/BluePrism(180_16_364369_1704620451)_Completion%20Certificate%20-%20Course%20(1)%20(1)_page-0001.jpg" target="_blank">Blue Prism Foundation Training</a>
-                            </li>
-                            <li>
-                                <span>Issued-Nov 2022</span><br>
-                                <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/Cyber%20security%20certificate%20by%20rahul%20_page-0001.jpg" target="_blank">Cybersecurity By Rahul Mishra</a>
-                            </li>
-                            <li>
-                                <span>Issued-May 2023</span><br>
-                                <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/SSO-DigitalCertificate_page-0001.jpg" target="_blank">Digital Financial Security</a>
-                            </li>
-                            <li>
-                                <span>Issued-Oct 2022</span><br>
-                                <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/iit%20kanpur%20certificate%20_page-0001.jpg" target="_blank">IIT kanpur</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="projects">
-                      <ul>
-                          <li>
-                              <span>Project Argus</span><br>
-                              <a href="https://github.com/jasvant0020/Project-Argus" target="_blank">Face Recognition Security System</a>
-                          </li>
-                          <li>
-                              <span>Portfolio</span><br>
-                              <a href="https://github.com/jasvant0020/portfolio-website-" target="_blank">portfolio-website-</a>
-                          </li>
-                          <li>
-                              <span>SecureVision</span><br>
-                              <a href="https://github.com/jasvant0020/SecureVision" target="_blank">SecureVision</a>
-                          </li>
-                          <li>
-                              <span>SpyPop</span><br>
-                              <a href="https://github.com/jasvant0020/SpyPop" target="_blank">SpyPop</a>
-                          </li>
-                          <li>
-                              <span>Expense Tracker</span><br>
-                              <a href="https://github.com/jasvant0020/Expense-Tracker" target="_blank">Expense Tracker</a>
-                          </li>
-                          <li>
-                              <span>VisionVault</span><br>
-                              <a href="https://github.com/jasvant0020/VisionVault" target="_blank">VisionVault</a>
-                          </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- NAV -->
+<nav class="nav-bg fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#home" class="font-display font-800 text-xl tracking-tight">
+      <span class="glow-text font-bold text-2xl">J</span><span class="text-white font-semibold">asvant</span>
+    </a>
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-8 text-sm">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#portfolio" class="nav-link">Work</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-3">
+      <button onclick="toggleTheme()" id="themeToggle" class="w-9 h-9 rounded-xl border border-[rgba(124,58,237,0.25)] flex items-center justify-center text-[#A78BFA] hover:bg-[rgba(124,58,237,0.1)] transition-all text-lg">
+        <i class='bx bx-moon' id="themeIcon"></i>
+      </button>
+      <button onclick="toggleMobile()" class="md:hidden w-9 h-9 rounded-xl border border-[rgba(124,58,237,0.25)] flex items-center justify-center text-[#A78BFA] text-xl">
+        <i class='bx bx-menu' id="menuIcon"></i>
+      </button>
     </div>
-<!--------services--------->
-    <div id="services">
-        <div class="container">
-            <h1 class="sub-title">My Services</h1>
-            <div class="services-list">
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="mobile-menu flex-col gap-1 px-6 pb-5 md:hidden border-t border-[rgba(124,58,237,0.1)]">
+    <a href="#home" onclick="toggleMobile()" class="block py-3 text-sm text-[#aaa] hover:text-[#A78BFA] transition-colors font-medium border-b border-[rgba(124,58,237,0.07)]">Home</a>
+    <a href="#about" onclick="toggleMobile()" class="block py-3 text-sm text-[#aaa] hover:text-[#A78BFA] transition-colors font-medium border-b border-[rgba(124,58,237,0.07)]">About</a>
+    <a href="#services" onclick="toggleMobile()" class="block py-3 text-sm text-[#aaa] hover:text-[#A78BFA] transition-colors font-medium border-b border-[rgba(124,58,237,0.07)]">Services</a>
+    <a href="#portfolio" onclick="toggleMobile()" class="block py-3 text-sm text-[#aaa] hover:text-[#A78BFA] transition-colors font-medium border-b border-[rgba(124,58,237,0.07)]">Work</a>
+    <a href="#contact" onclick="toggleMobile()" class="block py-3 text-sm text-[#aaa] hover:text-[#A78BFA] transition-colors font-medium">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero-section relative flex items-center overflow-hidden">
+  <!-- Background elements -->
+  <div class="hero-glow w-96 h-96 bg-purple-600 top-20 -left-32"></div>
+  <div class="hero-glow w-80 h-80 bg-violet-500 bottom-20 right-10"></div>
+  <div class="absolute inset-0 bg-grid-pattern opacity-100"></div>
+
+  <div class="max-w-6xl mx-auto px-6 pt-32 pb-20 w-full relative z-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+      <div class="flex-1 text-center md:text-left">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.25)] text-[#A78BFA] text-sm font-medium mb-8 reveal">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Available for Internships & Collaborations
+        </div>
+        <h1 class="font-display font-bold text-5xl md:text-7xl leading-tight mb-5 reveal" style="animation-delay:0.1s">
+          Hey, I'm <br><span class="glow-text">Jasvant Singh</span>
+        </h1>
+        <h2 class="text-xl md:text-2xl text-[#9898B8] mb-8 font-light reveal" style="animation-delay:0.2s">
+          I'm a <span id="typed" class="text-[#A78BFA] font-semibold"></span><span class="cursor"></span>
+        </h2>
+        <p class="text-[#7878A0] max-w-lg mx-auto md:mx-0 mb-10 text-base leading-relaxed reveal" style="animation-delay:0.3s">
+          B.Tech CSE (AI) student at AKTU, passionate about building intelligent systems — from computer vision to full-stack web projects that actually matter.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start reveal" style="animation-delay:0.4s">
+          <a href="#portfolio" class="btn-primary px-7 py-3.5 rounded-2xl text-white font-semibold text-sm flex items-center gap-2">
+            View My Work <i class='bx bx-arrow-back bx-rotate-180'></i>
+          </a>
+          <a href="#contact" class="btn-outline px-7 py-3.5 rounded-2xl font-semibold text-sm">
+            Get In Touch
+          </a>
+        </div>
+        <!-- Quick stats -->
+        <div class="flex flex-wrap gap-6 mt-12 justify-center md:justify-start reveal" style="animation-delay:0.5s">
+          <div>
+            <div class="font-display font-bold text-3xl text-white">6+</div>
+            <div class="text-[#5858780] text-xs text-[#888aaa] mt-0.5">Projects Built</div>
+          </div>
+          <div class="w-px bg-[rgba(124,58,237,0.2)]"></div>
+          <div>
+            <div class="font-display font-bold text-3xl text-white">8+</div>
+            <div class="text-xs text-[#888aaa] mt-0.5">Certifications</div>
+          </div>
+          <div class="w-px bg-[rgba(124,58,237,0.2)]"></div>
+          <div>
+            <div class="font-display font-bold text-3xl text-white">2026</div>
+            <div class="text-xs text-[#888aaa] mt-0.5">Graduating</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Avatar block -->
+      <div class="flex-shrink-0 reveal" style="animation-delay:0.3s">
+        <div class="relative animate-float">
+          <div class="w-64 h-64 md:w-80 md:h-80 rounded-3xl overflow-hidden border-2 border-[rgba(124,58,237,0.3)] relative" style="box-shadow: 0 0 60px rgba(124,58,237,0.2)">
+            <img src="images/image.jpg" alt="Jasvant Singh"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.parentElement.classList.add('avatar-fallback')">
+            <div class="absolute inset-0 flex items-center justify-center text-8xl font-display font-bold glow-text hidden" id="avatarFallback">JS</div>
+          </div>
+          <!-- Floating badges -->
+          <div class="absolute -bottom-4 -left-6 card-glass rounded-2xl px-4 py-3 text-xs font-semibold flex items-center gap-2 text-[#C4B5FD]">
+            <i class='bx bx-brain text-base text-[#A78BFA]'></i> AI & ML
+          </div>
+          <div class="absolute -top-4 -right-5 card-glass rounded-2xl px-4 py-3 text-xs font-semibold flex items-center gap-2 text-[#C4B5FD]">
+            <i class='bx bxl-python text-base text-[#A78BFA]'></i> Python
+          </div>
+          <!-- Decorative ring -->
+          <div class="absolute -inset-4 rounded-full border border-[rgba(124,58,237,0.1)] animate-spin-slow pointer-events-none"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#4A4A6A] text-xs">
+    <span>Scroll down</span>
+    <div class="w-px h-8 bg-gradient-to-b from-[#7C3AED] to-transparent animate-pulse"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 relative">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-[#A78BFA] text-sm font-semibold tracking-wider uppercase">About</span>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-white mt-2">Who I Am</h2>
+      <p class="text-[#7878A0] mt-4 max-w-xl mx-auto">A dedicated AI engineering student building practical solutions with a focus on computer vision and intelligent automation.</p>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="flex flex-wrap justify-center gap-2 mb-10 reveal">
+      <button onclick="switchTab('skills')" id="tab-skills" class="tab-btn active px-5 py-2.5 rounded-xl text-sm font-semibold transition-all border-b-2 border-transparent pb-2 text-[#E2E2F0]">
+        <i class='bx bx-code-alt mr-1.5'></i>Skills
+      </button>
+      <button onclick="switchTab('education')" id="tab-education" class="tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all border-b-2 border-transparent pb-2 text-[#7878A0]">
+        <i class='bx bx-book mr-1.5'></i>Education
+      </button>
+      <button onclick="switchTab('projects')" id="tab-projects" class="tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all border-b-2 border-transparent pb-2 text-[#7878A0]">
+        <i class='bx bx-git-repo-forked mr-1.5'></i>Projects
+      </button>
+      <button onclick="switchTab('certificates')" id="tab-certificates" class="tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all border-b-2 border-transparent pb-2 text-[#7878A0]">
+        <i class='bx bx-award mr-1.5'></i>Certificates
+      </button>
+    </div>
+
+    <!-- Skills Tab -->
+    <div id="content-skills" class="tab-content active reveal">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="card-glass rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-4"><i class='bx bx-terminal text-2xl text-[#A78BFA]'></i><h3 class="font-semibold text-white text-sm">Programming Languages</h3></div>
+          <div><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Java</span></div>
+        </div>
+        <div class="card-glass rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-4"><i class='bx bx-world text-2xl text-[#A78BFA]'></i><h3 class="font-semibold text-white text-sm">Web Development</h3></div>
+          <div><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">Tailwind CSS</span></div>
+        </div>
+        <div class="card-glass rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-4"><i class='bx bx-brain text-2xl text-[#A78BFA]'></i><h3 class="font-semibold text-white text-sm">AI / ML</h3></div>
+          <div><span class="skill-tag">OpenCV</span><span class="skill-tag">YOLOv8</span><span class="skill-tag">Face Recognition</span></div>
+        </div>
+        <div class="card-glass rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-4"><i class='bx bx-data text-2xl text-[#A78BFA]'></i><h3 class="font-semibold text-white text-sm">Concepts</h3></div>
+          <div><span class="skill-tag">DSA</span><span class="skill-tag">OOP</span></div>
+        </div>
+        <div class="card-glass rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-4"><i class='bx bxl-github text-2xl text-[#A78BFA]'></i><h3 class="font-semibold text-white text-sm">Tools & Platforms</h3></div>
+          <div><span class="skill-tag">Git</span><span class="skill-tag">GitHub</span><span class="skill-tag">VS Code</span><span class="skill-tag">Google Apps Script</span></div>
+        </div>
+        <div class="card-glass rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-4"><i class='bx bx-cog text-2xl text-[#A78BFA]'></i><h3 class="font-semibold text-white text-sm">Automation</h3></div>
+          <div><span class="skill-tag">IFTTT</span><span class="skill-tag">Google Sheets API</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education Tab -->
+    <div id="content-education" class="tab-content">
+      <div class="max-w-3xl mx-auto space-y-4">
+        <div class="card-glass rounded-2xl p-6 flex gap-5">
+          <div><div class="edu-dot mt-1.5"></div><div class="w-px h-full bg-[rgba(124,58,237,0.15)] ml-[4px] mt-2"></div></div>
+          <div>
+            <span class="text-[#A78BFA] text-xs font-semibold tracking-wider uppercase">2022 — 2026</span>
+            <h3 class="font-display font-bold text-white text-lg mt-1">B.Tech — Computer Science (AI)</h3>
+            <p class="text-[#7878A0] text-sm mt-1">Dr. A.P.J. Abdul Kalam Technical University (AKTU)</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <span class="skill-tag text-xs">Artificial Intelligence</span><span class="skill-tag text-xs">Machine Learning</span><span class="skill-tag text-xs">Computer Vision</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-glass rounded-2xl p-6 flex gap-5">
+          <div><div class="edu-dot mt-1.5"></div></div>
+          <div>
+            <span class="text-[#A78BFA] text-xs font-semibold tracking-wider uppercase">2020 — 2021</span>
+            <h3 class="font-display font-bold text-white text-lg mt-1">Senior Secondary (12th)</h3>
+            <p class="text-[#7878A0] text-sm mt-1">Uttar Pradesh Board of High School & Intermediate Education</p>
+          </div>
+        </div>
+        <div class="card-glass rounded-2xl p-6 flex gap-5">
+          <div><div class="edu-dot mt-1.5"></div></div>
+          <div>
+            <span class="text-[#A78BFA] text-xs font-semibold tracking-wider uppercase">2018 — 2019</span>
+            <h3 class="font-display font-bold text-white text-lg mt-1">Secondary (10th)</h3>
+            <p class="text-[#7878A0] text-sm mt-1">Uttar Pradesh Board of High School & Intermediate Education</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Tab -->
+    <div id="content-projects" class="tab-content">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <a href="https://github.com/jasvant0020/Project-Argus" target="_blank" class="card-glass rounded-2xl p-6 group block">
+          <div class="flex items-start justify-between mb-3">
+            <i class='bx bx-face text-3xl text-[#A78BFA]'></i>
+            <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors'></i>
+          </div>
+          <h3 class="font-display font-bold text-white mb-2">Project Argus</h3>
+          <p class="text-[#7878A0] text-sm leading-relaxed">Advanced face recognition security system with real-time identification and access control.</p>
+          <div class="mt-4 flex flex-wrap gap-1.5"><span class="skill-tag text-xs">Python</span><span class="skill-tag text-xs">OpenCV</span><span class="skill-tag text-xs">Face Recognition</span></div>
+        </a>
+        <a href="https://github.com/jasvant0020/SecureVision" target="_blank" class="card-glass rounded-2xl p-6 group block">
+          <div class="flex items-start justify-between mb-3">
+            <i class='bx bx-shield-quarter text-3xl text-[#A78BFA]'></i>
+            <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors'></i>
+          </div>
+          <h3 class="font-display font-bold text-white mb-2">SecureVision</h3>
+          <p class="text-[#7878A0] text-sm leading-relaxed">Intelligent surveillance system using computer vision for security monitoring.</p>
+          <div class="mt-4 flex flex-wrap gap-1.5"><span class="skill-tag text-xs">Python</span><span class="skill-tag text-xs">YOLOv8</span></div>
+        </a>
+        <a href="https://github.com/jasvant0020/SpyPop" target="_blank" class="card-glass rounded-2xl p-6 group block">
+          <div class="flex items-start justify-between mb-3">
+            <i class='bx bx-search-alt text-3xl text-[#A78BFA]'></i>
+            <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors'></i>
+          </div>
+          <h3 class="font-display font-bold text-white mb-2">SpyPop</h3>
+          <p class="text-[#7878A0] text-sm leading-relaxed">Covert monitoring utility with intelligent detection and notification capabilities.</p>
+          <div class="mt-4 flex flex-wrap gap-1.5"><span class="skill-tag text-xs">Python</span><span class="skill-tag text-xs">Automation</span></div>
+        </a>
+        <a href="https://github.com/jasvant0020/Expense-Tracker" target="_blank" class="card-glass rounded-2xl p-6 group block">
+          <div class="flex items-start justify-between mb-3">
+            <i class='bx bx-bar-chart-alt-2 text-3xl text-[#A78BFA]'></i>
+            <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors'></i>
+          </div>
+          <h3 class="font-display font-bold text-white mb-2">Expense Tracker</h3>
+          <p class="text-[#7878A0] text-sm leading-relaxed">Financial management tool with Google Sheets API integration for real-time tracking.</p>
+          <div class="mt-4 flex flex-wrap gap-1.5"><span class="skill-tag text-xs">JavaScript</span><span class="skill-tag text-xs">Google Sheets API</span></div>
+        </a>
+        <a href="https://github.com/jasvant0020/VisionVault" target="_blank" class="card-glass rounded-2xl p-6 group block">
+          <div class="flex items-start justify-between mb-3">
+            <i class='bx bx-camera text-3xl text-[#A78BFA]'></i>
+            <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors'></i>
+          </div>
+          <h3 class="font-display font-bold text-white mb-2">VisionVault</h3>
+          <p class="text-[#7878A0] text-sm leading-relaxed">Secure storage and management platform for computer vision datasets and models.</p>
+          <div class="mt-4 flex flex-wrap gap-1.5"><span class="skill-tag text-xs">Python</span><span class="skill-tag text-xs">OpenCV</span></div>
+        </a>
+        <a href="https://github.com/jasvant0020/portfolio-website-" target="_blank" class="card-glass rounded-2xl p-6 group block">
+          <div class="flex items-start justify-between mb-3">
+            <i class='bx bx-globe text-3xl text-[#A78BFA]'></i>
+            <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors'></i>
+          </div>
+          <h3 class="font-display font-bold text-white mb-2">Portfolio Website</h3>
+          <p class="text-[#7878A0] text-sm leading-relaxed">Personal developer portfolio with dynamic animations and a responsive design system.</p>
+          <div class="mt-4 flex flex-wrap gap-1.5"><span class="skill-tag text-xs">HTML</span><span class="skill-tag text-xs">CSS</span><span class="skill-tag text-xs">JavaScript</span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Certificates Tab -->
+    <div id="content-certificates" class="tab-content">
+      <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/UC-9ba55bb3-55b8-404a-87df-e32e43eb35b1.jpg" target="_blank" class="cert-item card-glass rounded-xl p-5 flex items-center justify-between group">
+          <div><p class="text-[#A78BFA] text-xs font-semibold mb-1">June 2025</p><h4 class="font-semibold text-white text-sm">Java OOP Certificate</h4></div>
+          <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors text-lg'></i>
+        </a>
+        <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/UC-68903915-d530-4dd9-a642-585202068bdb.jpg" target="_blank" class="cert-item card-glass rounded-xl p-5 flex items-center justify-between group">
+          <div><p class="text-[#A78BFA] text-xs font-semibold mb-1">June 2025</p><h4 class="font-semibold text-white text-sm">Google Sheets Mastery</h4></div>
+          <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors text-lg'></i>
+        </a>
+        <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/UC-7e282842-1d20-4eee-bc2a-41faf558b15b.jpg" target="_blank" class="cert-item card-glass rounded-xl p-5 flex items-center justify-between group">
+          <div><p class="text-[#A78BFA] text-xs font-semibold mb-1">June 2025</p><h4 class="font-semibold text-white text-sm">Python for Beginners</h4></div>
+          <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors text-lg'></i>
+        </a>
+        <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/10April_COP_Jasvant_page-0001.jpg" target="_blank" class="cert-item card-glass rounded-xl p-5 flex items-center justify-between group">
+          <div><p class="text-[#A78BFA] text-xs font-semibold mb-1">April 2023</p><h4 class="font-semibold text-white text-sm">Revenue Streams & Pricing Tactics</h4></div>
+          <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors text-lg'></i>
+        </a>
+        <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/BluePrism(180_16_364369_1704620451)_Completion%20Certificate%20-%20Course%20(1)%20(1)_page-0001.jpg" target="_blank" class="cert-item card-glass rounded-xl p-5 flex items-center justify-between group">
+          <div><p class="text-[#A78BFA] text-xs font-semibold mb-1">Jan 2024</p><h4 class="font-semibold text-white text-sm">Blue Prism Foundation Training</h4></div>
+          <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors text-lg'></i>
+        </a>
+        <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/Cyber%20security%20certificate%20by%20rahul%20_page-0001.jpg" target="_blank" class="cert-item card-glass rounded-xl p-5 flex items-center justify-between group">
+          <div><p class="text-[#A78BFA] text-xs font-semibold mb-1">Nov 2022</p><h4 class="font-semibold text-white text-sm">Cybersecurity Certificate</h4></div>
+          <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors text-lg'></i>
+        </a>
+        <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/SSO-DigitalCertificate_page-0001.jpg" target="_blank" class="cert-item card-glass rounded-xl p-5 flex items-center justify-between group">
+          <div><p class="text-[#A78BFA] text-xs font-semibold mb-1">May 2023</p><h4 class="font-semibold text-white text-sm">Digital Financial Security</h4></div>
+          <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors text-lg'></i>
+        </a>
+        <a href="https://github.com/jasvant0020/jasvant0020/blob/main/certificates/iit%20kanpur%20certificate%20_page-0001.jpg" target="_blank" class="cert-item card-glass rounded-xl p-5 flex items-center justify-between group">
+          <div><p class="text-[#A78BFA] text-xs font-semibold mb-1">Oct 2022</p><h4 class="font-semibold text-white text-sm">IIT Kanpur Certificate</h4></div>
+          <i class='bx bx-link-external text-[#4A4A6A] group-hover:text-[#A78BFA] transition-colors text-lg'></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-24 relative">
+  <div class="absolute inset-0 bg-[rgba(124,58,237,0.02)]"></div>
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 reveal">
+      <span class="text-[#A78BFA] text-sm font-semibold tracking-wider uppercase">Services</span>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-white mt-2">What I Offer</h2>
+      <p class="text-[#7878A0] mt-4 max-w-lg mx-auto">Bringing together design thinking, engineering, and AI expertise to build impactful solutions.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card-glass rounded-2xl p-8 reveal">
+        <div class="service-icon"><i class='bx bx-code-alt'></i></div>
+        <h3 class="font-display font-bold text-white text-xl mb-3">Web Development</h3>
+        <p class="text-[#7878A0] text-sm leading-relaxed mb-5">Crafting responsive, performant, and visually compelling web interfaces. From clean HTML/CSS layouts to interactive JavaScript-driven UIs — built to impress.</p>
+        <div class="flex flex-wrap gap-1.5"><span class="skill-tag text-xs">HTML/CSS</span><span class="skill-tag text-xs">JavaScript</span><span class="skill-tag text-xs">Tailwind</span></div>
+      </div>
+      <div class="card-glass rounded-2xl p-8 reveal" style="transition-delay:0.1s">
+        <div class="service-icon"><i class='bx bx-brain'></i></div>
+        <h3 class="font-display font-bold text-white text-xl mb-3">AI / ML Development</h3>
+        <p class="text-[#7878A0] text-sm leading-relaxed mb-5">Building intelligent computer vision systems using OpenCV, YOLOv8, and face recognition. Turning raw pixels into actionable insights and automated decisions.</p>
+        <div class="flex flex-wrap gap-1.5"><span class="skill-tag text-xs">Python</span><span class="skill-tag text-xs">OpenCV</span><span class="skill-tag text-xs">YOLOv8</span></div>
+      </div>
+      <div class="card-glass rounded-2xl p-8 reveal" style="transition-delay:0.2s">
+        <div class="service-icon"><i class='bx bx-git-branch'></i></div>
+        <h3 class="font-display font-bold text-white text-xl mb-3">Scripting & Automation</h3>
+        <p class="text-[#7878A0] text-sm leading-relaxed mb-5">Automating repetitive workflows using Python, Google Apps Script, and IFTTT. From smart spreadsheets to event-driven notification pipelines.</p>
+        <div class="flex flex-wrap gap-1.5"><span class="skill-tag text-xs">Python</span><span class="skill-tag text-xs">Apps Script</span><span class="skill-tag text-xs">IFTTT</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-[#A78BFA] text-sm font-semibold tracking-wider uppercase">Portfolio</span>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-white mt-2">Selected Work</h2>
+      <p class="text-[#7878A0] mt-4 max-w-lg mx-auto">A curated look at projects that showcase my technical range and creative approach.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="work-card card-glass rounded-2xl overflow-hidden group relative reveal cursor-pointer" onclick="window.open('https://github.com/jasvant0020/portfolio-website-','_blank')">
+        <div class="aspect-video bg-[rgba(124,58,237,0.08)] flex items-center justify-center relative overflow-hidden">
+          <img src="images/work-1.png" alt="Portfolio" class="w-full h-full object-cover" onerror="this.style.display='none'">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <i class='bx bx-globe text-5xl text-[rgba(124,58,237,0.3)]'></i>
+          </div>
+        </div>
+        <div class="work-overlay absolute inset-0 bg-gradient-to-t from-[rgba(15,15,20,0.97)] via-[rgba(124,58,237,0.4)] to-transparent flex flex-col justify-end p-6">
+          <h3 class="font-display font-bold text-white text-xl">Portfolio Website</h3>
+          <p class="text-[#C4B5FD] text-sm mt-1 mb-4">Responsive personal portfolio with animations.</p>
+          <span class="inline-flex items-center gap-1.5 text-[#A78BFA] text-xs font-semibold">View on GitHub <i class='bx bx-link-external'></i></span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-white">Portfolio Website</h3>
+          <p class="text-[#7878A0] text-xs mt-1">HTML · CSS · JavaScript</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="work-card card-glass rounded-2xl overflow-hidden group relative reveal cursor-pointer" style="transition-delay:0.1s" onclick="window.open('https://github.com/jasvant0020/Project-Argus','_blank')">
+        <div class="aspect-video bg-[rgba(124,58,237,0.08)] flex items-center justify-center relative overflow-hidden">
+          <img src="images/work-2.png" alt="Argus" class="w-full h-full object-cover" onerror="this.style.display='none'">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <i class='bx bx-face text-5xl text-[rgba(124,58,237,0.3)]'></i>
+          </div>
+        </div>
+        <div class="work-overlay absolute inset-0 bg-gradient-to-t from-[rgba(15,15,20,0.97)] via-[rgba(124,58,237,0.4)] to-transparent flex flex-col justify-end p-6">
+          <h3 class="font-display font-bold text-white text-xl">Project Argus</h3>
+          <p class="text-[#C4B5FD] text-sm mt-1 mb-4">Face recognition security system.</p>
+          <span class="inline-flex items-center gap-1.5 text-[#A78BFA] text-xs font-semibold">View on GitHub <i class='bx bx-link-external'></i></span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-white">Project Argus</h3>
+          <p class="text-[#7878A0] text-xs mt-1">Python · OpenCV · Face Recognition</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="work-card card-glass rounded-2xl overflow-hidden group relative reveal cursor-pointer" style="transition-delay:0.2s" onclick="window.open('https://github.com/jasvant0020/VisionVault','_blank')">
+        <div class="aspect-video bg-[rgba(124,58,237,0.08)] flex items-center justify-center relative overflow-hidden">
+          <img src="images/work-3.png" alt="VisionVault" class="w-full h-full object-cover" onerror="this.style.display='none'">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <i class='bx bx-camera text-5xl text-[rgba(124,58,237,0.3)]'></i>
+          </div>
+        </div>
+        <div class="work-overlay absolute inset-0 bg-gradient-to-t from-[rgba(15,15,20,0.97)] via-[rgba(124,58,237,0.4)] to-transparent flex flex-col justify-end p-6">
+          <h3 class="font-display font-bold text-white text-xl">VisionVault</h3>
+          <p class="text-[#C4B5FD] text-sm mt-1 mb-4">Vision dataset storage & management platform.</p>
+          <span class="inline-flex items-center gap-1.5 text-[#A78BFA] text-xs font-semibold">View on GitHub <i class='bx bx-link-external'></i></span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-white">VisionVault</h3>
+          <p class="text-[#7878A0] text-xs mt-1">Python · OpenCV · Storage</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-10 reveal">
+      <a href="https://github.com/jasvant0020" target="_blank" class="btn-outline px-8 py-3.5 rounded-2xl font-semibold text-sm inline-flex items-center gap-2">
+        <i class='bx bxl-github text-lg'></i> View All on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 relative">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(124,58,237,0.4)] to-transparent"></div>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-[#A78BFA] text-sm font-semibold tracking-wider uppercase">Contact</span>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-white mt-2">Let's Work Together</h2>
+      <p class="text-[#7878A0] mt-4 max-w-lg mx-auto">Open to internships, collaborations, and exciting AI projects. Feel free to reach out — I'd love to connect.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+      <!-- Contact info -->
+      <div class="reveal">
+        <div class="card-glass rounded-2xl p-8 h-full flex flex-col justify-between">
+          <div>
+            <h3 class="font-display font-bold text-white text-2xl mb-6">Get In Touch</h3>
+            <div class="space-y-5">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-[rgba(124,58,237,0.12)] flex items-center justify-center text-[#A78BFA] text-xl flex-shrink-0">
+                  <i class='bx bx-envelope'></i>
+                </div>
                 <div>
-                    <i class='bx bx-code-alt'></i>
-                    <h2>Web Design</h2>
-                    <p>Creative, responsive web design to boost your brand's online presence.</p>
-                    <a href="#">Learn more</a>
+                  <p class="text-[#7878A0] text-xs mb-0.5">Email</p>
+                  <a href="mailto:jasvant0singh123@gmail.com" class="text-white text-sm hover:text-[#A78BFA] transition-colors">jasvant0singh123@gmail.com</a>
                 </div>
-                 <div>
-                    <i class='bx bx-crop'></i>
-                    <h2>Programming</h2>
-                    <p>Efficient programming in C, Python, and Java for your needs.</p>
-                    <a href="#">Learn more</a>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-[rgba(124,58,237,0.12)] flex items-center justify-center text-[#A78BFA] text-xl flex-shrink-0">
+                  <i class='bx bx-phone'></i>
                 </div>
-                 <div>
-                    <i class='bx bx-terminal'></i>
-                    <h2>Git , GitHub</h2>
-                    <p>Smooth code sharing and collaboration with Git and GitHub skills.</p>
-                    <a href="#">Learn more</a>
+                <div>
+                  <p class="text-[#7878A0] text-xs mb-0.5">Phone</p>
+                  <a href="tel:+917053384822" class="text-white text-sm hover:text-[#A78BFA] transition-colors">+91 70533 84822</a>
                 </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-[rgba(124,58,237,0.12)] flex items-center justify-center text-[#A78BFA] text-xl flex-shrink-0">
+                  <i class='bx bx-map'></i>
+                </div>
+                <div>
+                  <p class="text-[#7878A0] text-xs mb-0.5">Location</p>
+                  <p class="text-white text-sm">Uttar Pradesh, India</p>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-<!---------portfolio--------->
-    <div id="portfolio">
-        <div class="container">
-            <h1 class="sub-title">My Work</h1>
-            <div class="work-list">
-                <div class="work">
-                    <img src="images/work-1.png">
-                    <div class="layer">
-                        <h3>PortFolio Website</h3>
-                        <p>For github Repo just click below</p>
-                        <a href="https://github.com/jasvant0020/portfolio-website-/tree/main"><i class='bx bx-link-external'></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/work-2.png">
-                    <div class="layer">
-                        <h3>Music App</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <a href="#"><i class='bx bx-link-external'></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/work-3.png">
-                    <div class="layer">
-                        <h3>Shopping App</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <a href="#"><i class='bx bx-link-external'></i></a>
-                    </div>
-                </div>
+          </div>
+          <div class="mt-8">
+            <p class="text-[#7878A0] text-xs font-semibold uppercase tracking-wider mb-4">Find me online</p>
+            <div class="flex gap-3">
+              <a href="https://github.com/jasvant0020" target="_blank" class="social-link"><i class='bx bxl-github'></i></a>
+              <a href="https://www.linkedin.com/in/jasvant-singh-a5b46a253/" target="_blank" class="social-link"><i class='bx bxl-linkedin'></i></a>
+              <a href="mailto:jasvant0singh123@gmail.com" class="social-link"><i class='bx bx-envelope'></i></a>
             </div>
-            <a href="#" class="btn">See More</a>
+          </div>
+          <div class="mt-6 pt-6 border-t border-[rgba(124,58,237,0.1)]">
+            <a href="images/jasvant_cv.pdf" download class="btn-primary px-6 py-3 rounded-xl text-white font-semibold text-sm inline-flex items-center gap-2 w-full justify-center">
+              <i class='bx bx-download text-lg'></i> Download Resume
+            </a>
+          </div>
         </div>
-    </div>
-<!------------contact------------>
-    <div id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
-                    <p><i class='bx bx-envelope'></i>jasvant0singh123@gmail.com</p>
-                    <p><i class='bx bx-phone'></i>7053384822</p>
-                    <div class="social-icons">
-                        <a href="facebook.html"><i class='bx bxl-facebook-square'></i></a>
-                        <a href="twitter.html"><i class='bx bxl-twitter'></i></a>
-                        <a href="https://github.com/jasvant0020"><i class='bx bxl-github'></i></a>
-                        <a href="https://www.linkedin.com/in/jasvant-singh-a5b46a253/"><i class='bx bxl-linkedin-square'></i></a>
-                        
-                    </div>
-                    <a href="images/jasvant_cv.pdf"  download class="btn btn2">Download CV</a>
-                </div>
-                <div class="contact-right">
-                    <form name="submit-to-google-sheet">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="Email" name="email" placeholder="Your email" required>
-                        <textarea name="message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
-                    </form>
-                    <span id="msg"></span>
-                </div>
+      </div>
+
+      <!-- Form -->
+      <div class="reveal" style="transition-delay:0.15s">
+        <div class="card-glass rounded-2xl p-8">
+          <h3 class="font-display font-bold text-white text-2xl mb-6">Send a Message</h3>
+          <form id="contactForm" class="space-y-4" onsubmit="handleForm(event)">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="text-[#7878A0] text-xs font-semibold uppercase tracking-wider block mb-2">Name</label>
+                <input type="text" placeholder="Your name" class="form-input" required>
+              </div>
+              <div>
+                <label class="text-[#7878A0] text-xs font-semibold uppercase tracking-wider block mb-2">Email</label>
+                <input type="email" placeholder="you@email.com" class="form-input" required>
+              </div>
             </div>
+            <div>
+              <label class="text-[#7878A0] text-xs font-semibold uppercase tracking-wider block mb-2">Subject</label>
+              <input type="text" placeholder="What's this about?" class="form-input">
+            </div>
+            <div>
+              <label class="text-[#7878A0] text-xs font-semibold uppercase tracking-wider block mb-2">Message</label>
+              <textarea rows="5" placeholder="Your message here..." class="form-input resize-none"></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full py-3.5 rounded-xl text-white font-semibold text-sm flex items-center justify-center gap-2 mt-2">
+              <i class='bx bx-send text-lg'></i> Send Message
+            </button>
+            <p id="formMsg" class="text-center text-sm hidden"></p>
+          </form>
         </div>
-        <div class="copyright">
-            <p>Copyright © Jasvant<br> All Rights Are Reserved</p>
-        </div>
+      </div>
     </div>
-    <!-- Scroll-to-top button -->
-    <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
-    <script src="script.js"></script>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-[rgba(124,58,237,0.1)] py-8">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="font-display font-bold text-lg"><span class="glow-text">J</span><span class="text-white">asvant Singh</span></div>
+    <p class="text-[#4A4A6A] text-sm">© 2025 Jasvant Singh. All rights reserved.</p>
+    <div class="flex gap-3">
+      <a href="https://github.com/jasvant0020" target="_blank" class="social-link w-9 h-9 text-base rounded-lg"><i class='bx bxl-github'></i></a>
+      <a href="https://www.linkedin.com/in/jasvant-singh-a5b46a253/" target="_blank" class="social-link w-9 h-9 text-base rounded-lg"><i class='bx bxl-linkedin'></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button id="scrollTopBtn" onclick="scrollToTop()"><i class='bx bx-chevron-up'></i></button>
+
+<script>
+// Typing animation
+const roles = ["AI Developer", "Python Engineer", "Computer Vision Builder", "B.Tech CSE (AI)"];
+let roleIdx = 0, charIdx = 0, deleting = false;
+const typedEl = document.getElementById('typed');
+function type() {
+  const current = roles[roleIdx];
+  if (!deleting) {
+    typedEl.textContent = current.slice(0, ++charIdx);
+    if (charIdx === current.length) { deleting = true; setTimeout(type, 1800); return; }
+  } else {
+    typedEl.textContent = current.slice(0, --charIdx);
+    if (charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; }
+  }
+  setTimeout(type, deleting ? 55 : 95);
+}
+type();
+
+// Tab switching
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => {
+    el.classList.remove('active','text-[#E2E2F0]');
+    el.classList.add('text-[#7878A0]');
+  });
+  document.getElementById('content-' + name).classList.add('active');
+  const btn = document.getElementById('tab-' + name);
+  btn.classList.add('active','text-[#E2E2F0]');
+  btn.classList.remove('text-[#7878A0]');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Scroll to top
+const scrollBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+  scrollBtn.classList.toggle('visible', window.scrollY > 400);
+});
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+// Mobile menu
+let menuOpen = false;
+function toggleMobile() {
+  menuOpen = !menuOpen;
+  const menu = document.getElementById('mobileMenu');
+  const icon = document.getElementById('menuIcon');
+  menu.classList.toggle('open', menuOpen);
+  icon.className = menuOpen ? 'bx bx-x' : 'bx bx-menu';
+}
+
+// Theme toggle
+let dark = true;
+function toggleTheme() {
+  dark = !dark;
+  const body = document.getElementById('body');
+  const icon = document.getElementById('themeIcon');
+  body.classList.toggle('light-mode', !dark);
+  icon.className = dark ? 'bx bx-moon' : 'bx bx-sun';
+  document.documentElement.style.setProperty('--text-main', dark ? '#E2E2F0' : '#1a1a2e');
+}
+
+// Form handler
+function handleForm(e) {
+  e.preventDefault();
+  const msg = document.getElementById('formMsg');
+  msg.textContent = "Message sent! I'll get back to you soon.";
+  msg.className = 'text-center text-sm text-green-400';
+  msg.classList.remove('hidden');
+  e.target.reset();
+  setTimeout(() => msg.classList.add('hidden'), 5000);
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Avatar fallback
+const avatar = document.querySelector('.avatar-fallback');
+if (avatar) { document.getElementById('avatarFallback').classList.remove('hidden'); }
+</script>
 </body>
 </html>
