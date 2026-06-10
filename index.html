@@ -3,397 +3,291 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jasvant Kumar – CS (AI) student, aspiring QA Engineer, Python Developer & AI Developer. View projects, skills, and download resume." />
-  <meta name="keywords" content="QA Engineer, Software Tester, Python Developer, AI Developer, Computer Science, Portfolio, Fresher, Jasvant Kumar" />
-  <meta name="author" content="Jasvant Kumar" />
-  <meta property="og:title" content="Jasvant Kumar | QA & Python & AI Developer" />
-  <meta property="og:description" content="CS (AI) student portfolio – QA, Python, Automation, AI/ML projects." />
+  <meta name="description" content="Arjun Sharma — CS (AI) student | Software Engineer | QA Engineer | Python Developer. Portfolio showcasing projects, skills, and certifications." />
+  <meta name="keywords" content="software engineer, QA engineer, python developer, AI, portfolio, computer science" />
+  <meta name="author" content="Arjun Sharma" />
+  <meta property="og:title" content="Arjun Sharma — Software Engineer Portfolio" />
+  <meta property="og:description" content="CS (AI) student passionate about software quality, Python, and intelligent systems." />
   <meta property="og:type" content="website" />
-  <title>Jasvant Kumar | QA Engineer · Python Developer · AI Developer</title>
+  <title>Arjun Sharma — Software Engineer Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- ═══════════════════════ LOADING SCREEN ═══════════════════════ -->
-<div id="loader" role="status" aria-label="Loading">
-  <div class="loader-inner">
-    <div class="loader-logo">JK</div>
-    <div class="loader-bar"><span></span></div>
-    <p class="loader-text">Initialising portfolio…</p>
-  </div>
-</div>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
 
-<!-- ═══════════════════════ READING PROGRESS ═══════════════════════ -->
-<div id="reading-progress" aria-hidden="true"></div>
-
-<!-- ═══════════════════════ COMMAND PALETTE ═══════════════════════ -->
-<div id="cmd-palette" role="dialog" aria-modal="true" aria-label="Command palette" hidden>
-  <div class="cmd-backdrop"></div>
-  <div class="cmd-box">
-    <div class="cmd-search-row">
-      <span class="cmd-icon">⌘</span>
-      <input type="text" id="cmd-input" placeholder="Search sections, skills, projects…" autocomplete="off" />
-      <kbd>ESC</kbd>
-    </div>
-    <ul id="cmd-results"></ul>
-  </div>
-</div>
-
-<!-- ═══════════════════════ NAV ═══════════════════════ -->
-<header id="navbar">
-  <nav class="nav-inner container">
-    <a href="#hero" class="nav-logo" aria-label="Home">JK<span class="dot">.</span></a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#certifications">Certs</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button id="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">
-        <span class="theme-icon">☀</span>
-      </button>
-      <button id="cmd-trigger" aria-label="Open command palette" title="Command palette (Ctrl+K)">
-        <span>⌘K</span>
-      </button>
-      <button id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-</header>
-
-<!-- Section indicator dots -->
-<nav id="section-dots" aria-label="Section navigation"></nav>
-
-<!-- ═══════════════════════ HERO ═══════════════════════ -->
-<section id="hero">
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
-  <div class="hero-inner container">
-    <div class="hero-text" data-reveal>
-      <div class="availability-badge">
-        <span class="pulse-dot"></span> Available for Internship &amp; Full-time
+  <!-- Command Palette -->
+  <div id="cmd-overlay" class="cmd-overlay hidden" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="cmd-box">
+      <div class="cmd-header">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="cmd-input" placeholder="Jump to section…" autocomplete="off" />
+        <kbd>ESC</kbd>
       </div>
-      <h1 class="hero-name">Jasvant<br><span class="gradient-text">Kumar</span></h1>
-      <p class="hero-role">
-        <span class="static-label">I'm a </span>
-        <span id="typed-role" aria-live="polite"></span>
-        <span class="cursor-blink">|</span>
-      </p>
-      <p class="hero-intro">CS (AI) student building reliable software &amp; intelligent systems. I obsess over quality, automate the tedious, and turn data into decisions.</p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Hire Me</a>
-        <a href="#projects" class="btn btn-outline">View Projects</a>
-        <a href="#resume" class="btn btn-ghost">↓ Resume</a>
+      <ul id="cmd-results" class="cmd-results"></ul>
+    </div>
+  </div>
+
+  <!-- Top Navigation -->
+  <header id="topnav" role="banner">
+    <nav class="nav-inner" aria-label="Primary navigation">
+      <a href="#hero" class="nav-logo" aria-label="Home">AS<span class="cursor-blink">_</span></a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#timeline" class="nav-link">Timeline</a></li>
+        <li><a href="#certifications" class="nav-link">Certs</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="cmd-btn" class="icon-btn" aria-label="Open command palette (Ctrl+K)" title="Command Palette (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <kbd class="nav-kbd">⌘K</kbd>
+        </button>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle color theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button id="mobile-menu-btn" class="icon-btn mobile-only" aria-label="Toggle mobile menu" aria-expanded="false">
+          <svg class="icon-menu" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg class="icon-close hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
       </div>
-      <div class="hero-stats">
-        <div class="hstat"><span class="hstat-num" data-count="12">0</span><span class="hstat-label">Projects</span></div>
-        <div class="hstat-div"></div>
-        <div class="hstat"><span class="hstat-num" data-count="8">0</span><span class="hstat-label">Certifications</span></div>
-        <div class="hstat-div"></div>
-        <div class="hstat"><span class="hstat-num" data-count="200">0</span><span class="hstat-label">DSA Problems</span></div>
-      </div>
-    </div>
-    <div class="hero-avatar" data-reveal>
-      <div class="avatar-ring">
-        <div class="avatar-img-wrap">
-          <!-- Replace src with your real photo -->
-          <img src="https://api.dicebear.com/8.x/bottts-neutral/svg?seed=jasvant&backgroundColor=1a1a2e" alt="Jasvant Kumar profile photo" loading="lazy" width="260" height="260" />
-        </div>
-      </div>
-      <div class="avatar-badge badge-1">Python</div>
-      <div class="avatar-badge badge-2">QA</div>
-      <div class="avatar-badge badge-3">AI/ML</div>
-    </div>
-  </div>
-  <a href="#about" class="scroll-hint" aria-label="Scroll down">
-    <span class="scroll-arrow"></span>
-  </a>
-</section>
+    </nav>
 
-<!-- ═══════════════════════ ABOUT ═══════════════════════ -->
-<section id="about" class="section">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">Who I Am</span>
-      <h2>About Me</h2>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden" role="navigation" aria-label="Mobile navigation">
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#skills" class="mobile-nav-link">Skills</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#timeline" class="mobile-nav-link">Timeline</a>
+      <a href="#certifications" class="mobile-nav-link">Certifications</a>
+      <a href="#resume" class="mobile-nav-link">Resume</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
     </div>
-    <div class="about-grid">
-      <div class="about-bio" data-reveal>
-        <p>I'm a B.Tech Computer Science (AI) student with a genuine passion for software quality and intelligent systems. I believe that <strong>great software is built, verified, and continuously improved</strong> — and I want to be part of that loop.</p>
-        <p>My day-to-day involves writing test cases, hunting bugs, automating repetitive checks with Selenium &amp; PyTest, and experimenting with computer vision projects using OpenCV and YOLO.</p>
-        <p>When I'm not coding, I'm solving DSA problems, contributing to open-source, or exploring new ML papers.</p>
-        <div class="about-meta">
-          <span>📍 Gurugram, Haryana, India</span>
-          <span>🎓 B.Tech CS (AI) — 2025 Grad</span>
-          <span>🌐 English · Hindi</span>
-          <span>🛂 Indian Citizen · No Visa Required</span>
-        </div>
-      </div>
-      <div class="about-strengths" data-reveal>
-        <h3>Strengths</h3>
-        <ul class="strength-list">
-          <li>Analytical &amp; detail-oriented mindset</li>
-          <li>Fast learner with growth mindset</li>
-          <li>Strong documentation &amp; communication</li>
-          <li>Comfortable with SDLC / STLC / Agile</li>
-          <li>Proactive bug-finder, not just tester</li>
-          <li>Clean, readable code practices</li>
-        </ul>
-        <h3 style="margin-top:1.5rem">Education</h3>
-        <div class="edu-card">
-          <div class="edu-degree">B.Tech — Computer Science (AI)</div>
-          <div class="edu-inst">Your University Name • 2021–2025</div>
-          <div class="edu-gpa">CGPA: 8.2 / 10</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- ═══════════════════════ RECRUITER QUICK OVERVIEW ═══════════════════════ -->
-<section id="recruiter" class="section section-alt">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">For Recruiters</span>
-      <h2>Quick Overview</h2>
-    </div>
-    <div class="recruiter-grid" id="recruiter-grid" data-reveal></div>
-  </div>
-</section>
+  <main id="main-content">
 
-<!-- ═══════════════════════ SKILLS ═══════════════════════ -->
-<section id="skills" class="section">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">What I Know</span>
-      <h2>Skills Dashboard</h2>
-    </div>
-    <div class="skill-search-row" data-reveal>
-      <input type="search" id="skill-search" placeholder="Search skills…" aria-label="Search skills" />
-    </div>
-    <div id="skill-categories" data-reveal></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ PROJECTS ═══════════════════════ -->
-<section id="projects" class="section section-alt">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">What I've Built</span>
-      <h2>Featured Projects</h2>
-    </div>
-    <div class="project-controls" data-reveal>
-      <div class="filter-tabs" id="filter-tabs" role="tablist"></div>
-      <div class="project-search-wrap">
-        <input type="search" id="project-search" placeholder="Search projects…" aria-label="Search projects" />
-        <select id="project-sort" aria-label="Sort projects">
-          <option value="default">Default</option>
-          <option value="name">Name A–Z</option>
-          <option value="recent">Most Recent</option>
-        </select>
-      </div>
-    </div>
-    <div class="projects-grid" id="projects-grid" data-reveal></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ PROJECT MODAL ═══════════════════════ -->
-<div id="project-modal" role="dialog" aria-modal="true" aria-label="Project details" hidden>
-  <div class="modal-backdrop"></div>
-  <div class="modal-box">
-    <button class="modal-close" aria-label="Close modal">✕</button>
-    <div id="modal-content"></div>
-  </div>
-</div>
-
-<!-- ═══════════════════════ RESUME ═══════════════════════ -->
-<section id="resume" class="section">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">Download</span>
-      <h2>Resume Center</h2>
-    </div>
-    <div class="resume-grid" id="resume-grid" data-reveal></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ CERTIFICATIONS ═══════════════════════ -->
-<section id="certifications" class="section section-alt">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">Credentials</span>
-      <h2>Certifications</h2>
-    </div>
-    <div class="cert-grid" id="cert-grid" data-reveal></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ ACHIEVEMENTS ═══════════════════════ -->
-<section id="achievements" class="section">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">By the Numbers</span>
-      <h2>Achievements</h2>
-    </div>
-    <div class="achievement-grid" id="achievement-grid" data-reveal></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ TIMELINE ═══════════════════════ -->
-<section id="timeline" class="section section-alt">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">My Journey</span>
-      <h2>Timeline</h2>
-    </div>
-    <div class="timeline-wrap" id="timeline-wrap" data-reveal></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ GITHUB STATS ═══════════════════════ -->
-<section id="github" class="section">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">Open Source</span>
-      <h2>GitHub Statistics</h2>
-    </div>
-    <div class="github-grid" id="github-grid" data-reveal></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
-<section id="testimonials" class="section section-alt">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">Kind Words</span>
-      <h2>Testimonials</h2>
-    </div>
-    <div class="testimonials-track" id="testimonials-track" data-reveal></div>
-    <div class="testimonial-dots" id="testimonial-dots"></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ SERVICES ═══════════════════════ -->
-<section id="services" class="section">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">What I Offer</span>
-      <h2>Services</h2>
-    </div>
-    <div class="services-grid" id="services-grid" data-reveal></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ BLOG ═══════════════════════ -->
-<section id="blog" class="section section-alt">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">Thoughts</span>
-      <h2>Blog</h2>
-    </div>
-    <div class="blog-grid" id="blog-grid" data-reveal></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ FAQ ═══════════════════════ -->
-<section id="faq" class="section">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">Got Questions?</span>
-      <h2>Recruiter FAQ</h2>
-    </div>
-    <div class="faq-list" id="faq-list" data-reveal></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
-<section id="contact" class="section section-alt">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-eyebrow">Let's Talk</span>
-      <h2>Get in Touch</h2>
-    </div>
-    <div class="contact-wrap">
-      <div class="contact-info" data-reveal>
-        <div class="contact-links" id="contact-links"></div>
-        <div class="contact-actions">
-          <button class="btn btn-outline" id="copy-email-btn">📋 Copy Email</button>
-          <a href="#" class="btn btn-outline" id="vcard-btn">💾 Download vCard</a>
-        </div>
-      </div>
-      <form class="contact-form glass-card" data-reveal id="contact-form"
-            action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <h3>Send a Message</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+    <!-- ─── HERO ─── -->
+    <section id="hero" class="section section-hero" aria-label="Introduction">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span id="hero-availability"></span>
           </div>
-          <div class="form-group">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+
+          <h1 class="hero-name">
+            <span id="hero-name-text"></span><span class="cursor-blink">_</span>
+          </h1>
+          <p class="hero-role" id="hero-role"></p>
+          <p class="hero-summary" id="hero-summary"></p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#" id="hero-resume-btn" class="btn btn-secondary" download>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Resume
+            </a>
+            <a href="#contact" class="btn btn-ghost">Contact</a>
+          </div>
+
+          <div class="hero-meta" id="hero-meta"></div>
+        </div>
+
+        <div class="hero-card-wrap">
+          <div class="hero-card" aria-hidden="true">
+            <div class="hcard-header">
+              <span class="hcard-dot red"></span>
+              <span class="hcard-dot yellow"></span>
+              <span class="hcard-dot green"></span>
+              <span class="hcard-title">profile.json</span>
+            </div>
+            <pre class="hcard-code" id="hero-json-preview"></pre>
           </div>
         </div>
-        <div class="form-group">
-          <label for="cf-subject">Subject</label>
-          <input type="text" id="cf-subject" name="subject" placeholder="Internship opportunity…" required />
+      </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section id="about" class="section" aria-label="About me">
+      <div class="container">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Who I am</h2>
+        <div class="about-grid">
+          <div class="about-main">
+            <p class="about-summary" id="about-summary"></p>
+            <div class="about-objective">
+              <h3>Career Objective</h3>
+              <p id="about-objective"></p>
+            </div>
+            <div class="about-strengths">
+              <h3>Core Strengths</h3>
+              <ul id="about-strengths-list" class="strengths-list"></ul>
+            </div>
+          </div>
+          <div class="about-sidebar">
+            <div class="info-card">
+              <div class="info-item">
+                <span class="info-label">Education</span>
+                <span class="info-value" id="about-education"></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Status</span>
+                <span class="info-value" id="about-status"></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Location</span>
+                <span class="info-value" id="about-location"></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Seeking</span>
+                <span class="info-value" id="about-seeking"></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Languages</span>
+                <span class="info-value" id="about-languages"></span>
+              </div>
+            </div>
+
+            <!-- GitHub Stats -->
+            <div class="info-card github-stats-card">
+              <div class="github-stats-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                GitHub Stats
+              </div>
+              <div class="github-stats-grid" id="github-stats-grid"></div>
+              <div class="github-langs" id="github-langs"></div>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about the role…" required></textarea>
+      </div>
+    </section>
+
+    <!-- ─── SKILLS ─── -->
+    <section id="skills" class="section section-alt" aria-label="Skills">
+      <div class="container">
+        <div class="section-label">Skills</div>
+        <h2 class="section-title">Technical expertise</h2>
+        <div id="skills-grid" class="skills-grid"></div>
+      </div>
+    </section>
+
+    <!-- ─── PROJECTS ─── -->
+    <section id="projects" class="section" aria-label="Projects">
+      <div class="container">
+        <div class="section-label">Projects</div>
+        <h2 class="section-title">What I've built</h2>
+
+        <div class="projects-controls">
+          <div class="filter-tabs" id="filter-tabs" role="tablist" aria-label="Filter projects by category"></div>
+          <div class="search-wrap">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="search" id="project-search" placeholder="Search projects…" aria-label="Search projects" />
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary w-full">Send Message →</button>
-        <p class="form-status" id="form-status" aria-live="polite"></p>
-      </form>
-    </div>
-  </div>
-</section>
 
-<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-<footer id="footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <span class="footer-logo">JK<span class="dot">.</span></span>
-      <p>Building quality software &amp; intelligent systems.</p>
-      <p class="footer-copy">© <span id="footer-year"></span> Jasvant Kumar. Built with HTML · CSS · JS.</p>
-    </div>
-    <div class="footer-links">
-      <div>
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div id="projects-grid" class="projects-grid" role="list"></div>
+        <p id="no-results" class="no-results hidden">No projects match your search.</p>
       </div>
-      <div>
-        <h4>Resumes</h4>
-        <ul id="footer-resumes"></ul>
-      </div>
-      <div>
-        <h4>Socials</h4>
-        <ul id="footer-socials"></ul>
-      </div>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<!-- ═══════════════════════ FLOATING ACTIONS ═══════════════════════ -->
-<div id="floating-actions" aria-label="Quick actions">
-  <button class="fab" id="fab-top" aria-label="Back to top" title="Back to top">↑</button>
-  <a class="fab" id="fab-resume" href="#resume" aria-label="Download Resume" title="Download Resume">📄</a>
-  <a class="fab" id="fab-email" href="#contact" aria-label="Email me" title="Email me">✉</a>
-  <a class="fab" id="fab-linkedin" href="#" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">in</a>
-  <a class="fab" id="fab-github" href="#" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">⌥</a>
-</div>
+    <!-- ─── TIMELINE ─── -->
+    <section id="timeline" class="section section-alt" aria-label="Timeline">
+      <div class="container">
+        <div class="section-label">Timeline</div>
+        <h2 class="section-title">My journey</h2>
+        <div id="timeline-track" class="timeline-track"></div>
+      </div>
+    </section>
 
-<script src="script.js"></script>
+    <!-- ─── CERTIFICATIONS ─── -->
+    <section id="certifications" class="section" aria-label="Certifications">
+      <div class="container">
+        <div class="section-label">Certifications</div>
+        <h2 class="section-title">Credentials</h2>
+        <div id="certs-grid" class="certs-grid"></div>
+      </div>
+    </section>
+
+    <!-- ─── RESUME CENTER ─── -->
+    <section id="resume" class="section section-alt" aria-label="Resume center">
+      <div class="container">
+        <div class="section-label">Resume</div>
+        <h2 class="section-title">Download my resume</h2>
+        <p class="section-sub">Tailored resumes for each role — pick the one that fits.</p>
+        <div id="resume-grid" class="resume-grid"></div>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT ─── -->
+    <section id="contact" class="section" aria-label="Contact">
+      <div class="container">
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">Let's connect</h2>
+        <p class="section-sub">Open to internships, full-time roles, and collaboration.</p>
+
+        <div class="contact-grid">
+          <div class="contact-links-col">
+            <div id="contact-links" class="contact-links"></div>
+          </div>
+
+          <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <div class="form-group">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" placeholder="your@email.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="cf-subject">Subject</label>
+              <input type="text" id="cf-subject" name="subject" placeholder="Internship opportunity / Project collaboration" />
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about the opportunity…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary full-width" id="cf-submit">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg>
+              Send Message
+            </button>
+            <p id="form-feedback" class="form-feedback hidden"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <span class="footer-name" id="footer-name"></span>
+      <span class="footer-copy">Built with HTML, CSS & JS · <span id="footer-year"></span></span>
+      <a href="#hero" class="footer-top" aria-label="Back to top">↑ Top</a>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" class="back-to-top hidden" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
